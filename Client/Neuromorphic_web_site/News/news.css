@@ -12,3 +12,16 @@
    margin:0 auto;
    padding:2rem 3.2rem;
 }
+.back-the-page{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-bottom:3rem;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow-icon{
+  height:2.2rem;
+  width:2.2rem;
+   transition: transform 0.3s ease;
+}
