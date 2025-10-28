@@ -31,3 +31,23 @@ const PublicationSchema = new mongoose.Schema({
       "Year cannot be more than 5 years in the future",
     ],
   },
+
+  description: {
+    type: String,
+    required: [true, "Please add a description"],
+    maxlength: [1000, "Description cannot be more than 1000 characters"],
+  },
+  link: {
+    type: String,
+    match: [
+      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+      "Please use a valid URL with HTTP or HTTPS",
+    ],
+  },
+  doi: {
+    type: String,
+    trim: true,
+    match: /^10.\d{4,9}\/[-._;()/:A-Z0-9]+$/i,
+  },
+});
+module.exports = mongoose.model("Publication", PublicationSchema);
