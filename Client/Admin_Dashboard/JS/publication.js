@@ -52,3 +52,32 @@ async function openPublicationModal(publication = null) {
   const submitBtn = document.getElementById("publicationSubmitBtn");
   const form = document.getElementById("publicationForm");
   const authorSelect = document.getElementById("publicationAuthors");
+
+    if (publication) {
+    // Editing existing publication
+    title.textContent = "Edit Publication";
+    submitBtn.textContent = "Save Changes";
+    document.getElementById("publicationId").value = publication._id || "";
+    document.getElementById("publicationTitle").value = publication.title || "";
+    document.getElementById("publicationJournal").value = publication.journal || "";
+    document.getElementById("publicationYear").value = publication.year || "";
+    document.getElementById("publicationDescription").value = publication.description || "";
+    document.getElementById("publicationLink").value = publication.link || "";
+    document.getElementById("publicationDoi").value = publication.doi || "";
+
+    if (Array.isArray(publication.authors)) {
+      const authorIds = publication.authors.map(a => a._id);
+      for (const option of authorSelect.options) {
+        option.selected = authorIds.includes(option.value);
+      }
+    }
+  } else {
+    // Adding new publication
+    title.textContent = "Add Publication";
+    submitBtn.textContent = "Save Publication";
+    form.reset();
+    document.getElementById("publicationId").value = "";
+  }
+
+  modal.classList.add("active");
+}
