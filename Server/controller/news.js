@@ -122,3 +122,27 @@ exports.updateNews = asyncHandler(async (req, res, next) => {
     data: news,
   });
 });
+
+// @desc Delete News
+// @route DELETE /api/v1/news/:id
+// @access Private(Admin only)
+exports.deleteNews = asyncHandler(async (req, res, next) => {
+  const news = await News.findById(req.params.id);
+
+  if (!news) {
+    return next(new ErrorResponse(`News not found with id ${req.params.id}`, 404));
+  }
+
+  // Delete image if exists
+  if (news.image && news.image.startsWith("/uploads")) {
+    const imagePath = path.join(__dirname, "..", news.image);
+    if (fs.existsSync(imagePath)) fs.unlinkSync(imagePath);
+  }
+
+  await news.deleteOne();
+
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+});
