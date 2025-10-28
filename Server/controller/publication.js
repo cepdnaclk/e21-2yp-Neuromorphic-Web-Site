@@ -34,3 +34,21 @@ exports.getPublication = asyncHandler(async (req, res, next) => {
       )
     );
   }
+
+  res.status(200).json({
+    success: true,
+    data: Publication,
+  });
+});
+
+// @desc   Create new Publication
+// @route  POST /api/v1/publications
+// @access Private(Admin only)
+exports.createPublication = asyncHandler(async (req, res, next) => {
+  const publication = await Publications.create(req.body);
+
+  res.status(201).json({
+    success: true,
+    data: publication,
+  });
+});
