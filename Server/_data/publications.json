@@ -9,4 +9,14 @@
     "description": "This research focuses on swarm-based path optimization algorithms inspired by biological systems, applied to robotic networks.",
     "link": "https://ieeexplore.ieee.org/document/0156789"
   },
+  {
+    "_id": "671b9d300001000000000002",
+    "title": "Machine Learning in Sensor-Based Robotic Systems",
+    "authors": ["671b8b120001000000000005", "671b8b120001000000000002"],
+    "year": 2023,
+    "journal": "International Journal of AI Research",
+    "doi": "10.1016/j.ijar.2023.00234",
+    "description": "An exploration of adaptive control models using sensor fusion and neural networks in autonomous robotic systems.",
+    "link": "https://www.ijar.org/article/00234"
+  },
 ]
