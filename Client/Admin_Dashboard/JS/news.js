@@ -81,4 +81,11 @@ function openNewsModal(news = null) {
   const placeholder = document.getElementById("uploadPlaceholderNews");
   const uploadArea = document.getElementById("uploadAreaNews");
   const removeBtn = document.getElementById("removeImageBtn");
+
+  
+  // Rest form first
+  form.reset();
+  document.getElementById("newsId").value = "";
+  const preview = document.getElementById("imagePreview-news");
+
 }
