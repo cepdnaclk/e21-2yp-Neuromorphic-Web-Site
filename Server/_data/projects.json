@@ -1,0 +1,160 @@
+[
+  {
+    "title": "NeuroChip X1",
+    "tags": ["verilog", "hardware", "CMOS"],
+    "details": "Exploring the advantages of event-driven computation in neuromorphic systems and their applications in real-time processing.",
+    "image": "img/projects/project-1.jpg",
+    "link": "project_folder/project.html",
+    "overview": "The NeuroChip X1 project represents a breakthrough in neuromorphic computing hardware. Our team has developed a revolutionary chip architecture that mimics the biological neural networks found in the human brain. This chip contains 1 million programmable neurons and 256 million synaptic connections, enabling unprecedented parallel processing capabilities while maintaining ultra-low power consumption.",
+    "objectives": [
+      "Reduce power consumption by 70% compared to traditional GPU-based systems",
+      "Implement real-time learning capabilities using STDP algorithms",
+      "Achieve 1 million neuron density on a single chip",
+      "Enable scalable neuromorphic processing for edge applications",
+      "Demonstrate superior pattern recognition performance"
+    ],
+    "outcomes": [
+      "Successfully fabricated prototype chips with 1M neurons using 28nm CMOS technology",
+      "Achieved 68% power reduction compared to conventional processors",
+      "Demonstrated real-time pattern recognition with 94% accuracy",
+      "Published 3 peer-reviewed papers on the architecture",
+      "Filed 2 patents for novel circuit designs"
+    ],
+    "technicalApproach": "Our technical approach combines novel circuit designs with bio-inspired learning algorithms. We use asynchronous event-driven processing to minimize power consumption, and implement on-chip spike-timing-dependent plasticity (STDP) for real-time learning. The chip features a hierarchical architecture with configurable connectivity patterns, allowing it to be adapted for various applications from edge computing to robotic control.",
+    "status": "Active",
+    "duration": "2023-present",
+    "funding": "$2.5M NSF Grant",
+    "technologies": [
+      "CMOS",
+      "Spiking Neural Network",
+      "STDP Learning",
+      "Event-driven Processing",
+      "Hardware Acceleration"
+    ],
+    "projectContributors": [
+      "671b8b120001000000000008",
+      "671b8b120001000000000003"
+    ],
+    "repositories": [
+      {
+        "title": "NeuroChip Hardware",
+        "description": "Implementation of STDP-based spiking neural network on CMOS hardware.",
+        "image": "project_folder/img/default.jpg",
+        "link": "https://github.com/your-username/neurochip-hardware",
+        "type": "GitHub"
+      },
+      {
+        "title": "NeuroChip Documentation",
+        "description": "Complete documentation and research papers for the NeuroChip X1 project.",
+        "image": "project_folder/img/icon_page.png",
+        "link": "https://neurochip-docs.example.com",
+        "type": "Web Page"
+      }
+    ]
+  },
+  {
+    "title": "Pera Swarm Intelligence",
+    "tags": ["robotics", "swarm", "AI"],
+    "details": "Distributed robotics system using bio-inspired swarm intelligence algorithms for autonomous coordination.",
+    "image": "img/projects/project-1.jpg",
+    "link": "project_folder/project.html",
+    "overview": "The Pera Swarm Intelligence project focuses on developing distributed robotics systems using bio-inspired swarm intelligence algorithms. Our research explores how multiple autonomous agents can coordinate and collaborate to achieve complex tasks through simple local interactions, mimicking the behavior of natural swarms like bees, ants, and bird flocks.",
+    "objectives": [
+      "Develop scalable swarm coordination algorithms for 100+ robots",
+      "Implement bio-inspired communication protocols between agents",
+      "Achieve fault-tolerant operation with 30% agent failure rate",
+      "Create adaptive task allocation mechanisms for dynamic environments",
+      "Demonstrate real-world applications in search and rescue scenarios"
+    ],
+    "outcomes": [
+      "Successfully deployed swarm of 50 autonomous robots in controlled environment",
+      "Developed novel distributed consensus algorithm with 95% reliability",
+      "Achieved 40% improvement in task completion time vs traditional approaches",
+      "Published 5 papers in top-tier robotics conferences",
+      "Demonstrated search and rescue capability in simulated disaster scenarios"
+    ],
+    "technicalApproach": "Our approach combines distributed artificial intelligence with bio-inspired algorithms. We use particle swarm optimization for path planning, ant colony optimization for task allocation, and flocking algorithms for group coordination. Each robot operates autonomously using local sensors and communication with nearby agents, enabling emergent intelligent behavior at the swarm level.",
+    "status": "Active",
+    "duration": "2022-present",
+    "funding": "$1.8M Research Grant",
+    "technologies": [
+      "Robotics",
+      "Swarm Intelligence",
+      "Distributed AI",
+      "Particle Swarm Optimization",
+      "Multi-agent Systems"
+    ],
+    "projectContributors": [
+      "671b8b120001000000000004",
+      "671b8b120001000000000005"
+    ],
+    "repositories": [
+      {
+        "title": "Pera Swarm Core",
+        "description": "Main repository containing swarm coordination algorithms and robot control software.",
+        "image": "project_folder/img/default.jpg",
+        "link": "https://github.com/pera-swarm/swarm-core",
+        "type": "GitHub"
+      },
+      {
+        "title": "Swarm Simulator",
+        "description": "Web-based simulation environment for testing swarm behaviors and algorithms.",
+        "image": "project_folder/img/icon_page.png",
+        "link": "https://simulator.pera-swarm.org",
+        "type": "Web Page"
+      }
+    ]
+  },
+  {
+    "title": "Neural Signal Processing",
+    "tags": ["signals", "ML", "BCI"],
+    "details": "Advanced signal processing techniques for brain-computer interfaces using machine learning approaches.",
+    "image": "img/projects/project-1.jpg",
+    "link": "project_folder/project.html",
+    "overview": "The Neural Signal Processing project develops advanced computational methods for analyzing and interpreting neural signals from brain-computer interfaces. Our research combines signal processing, machine learning, and neuroscience to create more accurate and robust BCI systems for medical and assistive applications.",
+    "objectives": [
+      "Improve BCI decoding accuracy by 50% over current state-of-art",
+      "Develop real-time signal processing algorithms for EEG and fNIRS",
+      "Create adaptive filters for artifact removal in noisy environments",
+      "Enable multi-modal signal fusion for enhanced performance",
+      "Demonstrate clinical applications for paralyzed patients"
+    ],
+    "outcomes": [
+      "Achieved 94% accuracy in motor imagery classification",
+      "Developed real-time processing pipeline with <50ms latency",
+      "Successfully tested with 25 clinical participants",
+      "Published breakthrough results in Nature Neuroscience",
+      "Received FDA approval for clinical trials"
+    ],
+    "technicalApproach": "We employ deep learning architectures specifically designed for neural signal processing, including convolutional neural networks for spatial feature extraction and recurrent networks for temporal dynamics. Our approach integrates multiple signal modalities (EEG, fNIRS, EMG) using advanced sensor fusion techniques and adaptive noise cancellation.",
+    "status": "Active",
+    "duration": "2021-present",
+    "funding": "$3.2M NIH Grant",
+    "technologies": [
+      "Signal Processing",
+      "Deep Learning",
+      "BCI",
+      "EEG",
+      "fNIRS",
+      "Machine Learning"
+    ],
+    "projectContributors": [
+      "671b8b120001000000000007",
+      "671b8b120001000000000003"
+    ],
+    "repositories": [
+      {
+        "title": "Neural Signal Toolkit",
+        "description": "Comprehensive toolkit for neural signal processing and BCI applications.",
+        "link": "https://github.com/neural-signals/toolkit",
+        "type": "GitHub"
+      },
+      {
+        "title": "BCI Clinical Platform",
+        "description": "Web platform for managing clinical BCI trials and patient data.",
+        "link": "https://bci-clinical.example.com",
+        "type": "Web Page"
+      }
+    ]
+  }
+]
