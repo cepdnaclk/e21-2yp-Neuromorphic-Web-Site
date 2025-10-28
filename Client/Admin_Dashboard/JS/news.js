@@ -168,3 +168,34 @@ document.getElementById("newsForm").addEventListener("submit", async function (e
       );
     }
   });
+
+  document.getElementById("newsImage").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  const preview = document.getElementById("imagePreview-news");
+  const placeholder = document.getElementById("uploadPlaceholderNews");
+  const uploadArea = document.getElementById("uploadAreaNews");
+  const removeBtn = document.getElementById("removeImageBtn");
+
+  if (file) {
+    // Show preview
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+    preview.classList.add("show");
+
+    // Hide placeholder
+    placeholder.style.display = "none";
+
+    // Show remove button
+    removeBtn.style.display = "block";
+
+    // Add styling indicator
+    uploadArea.classList.add("has-image");
+  } else {
+    // Reset state if no file selected
+    preview.src = "";
+    preview.style.display = "none";
+    placeholder.style.display = "flex";
+    removeBtn.style.display = "none";
+    uploadArea.classList.remove("has-image");
+  }
+});
