@@ -26,3 +26,25 @@
       
     </div>
   </section>
+
+</main>
+
+    <!-- Footer -->
+    <footer class="subSection-footer">
+      <div class="container">
+        <p>&copy; 2025 Neuromorphic Research Center | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="./js/sub-api.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        try {
+          window.NEURO_API.loadPublications('#publication-container');
+        } catch (e) {
+          console.error('Failed to initialize API loaders', e);
+        }
+      });
+    </script>
+  </body>
+</html>
