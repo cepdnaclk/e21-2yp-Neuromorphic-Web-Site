@@ -1,0 +1,18 @@
+{
+  "siteName": "Neuromphis Research Center",
+  "siteDescription": "Advancing neural computing and brain-inspired AI systems",
+  "contactEmail": "info@neuromphis.com",
+  "address": "University of Peradeniya, Sri Lanka",
+  "phone": "+94 81 123 4567",
+  "socialMedia": {
+    "twitter": "https://twitter.com/neuromphis",
+    "linkedin": "https://linkedin.com/company/neuromphis",
+    "github": "https://github.com/neuromphis"
+  },
+  "features": {
+    "userRegistration": true,
+    "eventRegistration": true,
+    "newsComments": false,
+    "projectCollaboration": true
+  }
+}
