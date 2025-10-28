@@ -25,3 +25,34 @@
   width:2.2rem;
    transition: transform 0.3s ease;
 }
+
+.back-link{
+  font-size:1.6rem;
+  text-decoration:none;
+  font-weight:600;
+  color: #504e4eff;
+}
+
+.back-the-page:hover {
+  transform: translateY(-2px);
+}
+
+.back-the-page:hover .back-arrow-icon {
+  transform: translateX(-4px);
+}
+
+.news-title{
+  color: #3a3838ff;
+  font-size:2.2rem;
+  margin-bottom:1.2rem;
+}
+
+.news-meta{
+  list-style:none;
+  display:flex;
+  gap:1.8rem;
+}
+
+.news-meta li{
+  font-size:1.6rem;
+}
