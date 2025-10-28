@@ -68,3 +68,17 @@ function updateNewsTable(newsData) {
 
   tableBody.innerHTML = html;
 }
+
+//--------------------------------------
+//     Open modal for Add/Edit user
+//--------------------------------------
+function openNewsModal(news = null) {
+  console.log("call");
+  const modal = document.getElementById("newsModal");
+  const title = document.getElementById("newsModalTitle");
+  const form = document.getElementById("newsForm");
+  const submitBtn = document.getElementById("newsSubmitBtn");
+  const placeholder = document.getElementById("uploadPlaceholderNews");
+  const uploadArea = document.getElementById("uploadAreaNews");
+  const removeBtn = document.getElementById("removeImageBtn");
+}
