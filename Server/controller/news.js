@@ -59,3 +59,30 @@ exports.getNewsBySlug = asyncHandler(async (req, res, next) => {
     data: news,
   });
 });
+// @desc   Create new News
+// @route  POST /api/v1/news
+// @access Private(Admin only)
+exports.createNews = asyncHandler(async (req, res, next) => {
+  const {title,brief,fullContent,author,date,link} =req.body;
+
+  let imageUrl=null;
+
+  if (req.file) {
+    imageUrl = `${req.protocol}://${req.get("host")}/uploads/news/${req.file.filename}`;
+  }
+
+  const news = await News.create({
+    title,
+    brief,
+    fullContent,
+    author,
+    date,
+    link,
+    image:imageUrl || `${req.protocol}://${req.get("host")}/uploads/news/news.jpg`,
+  });
+
+  res.status(201).json({
+    success: true,
+    data: news,
+  });
+});
