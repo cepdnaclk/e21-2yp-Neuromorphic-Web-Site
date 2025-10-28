@@ -6,3 +6,38 @@ document.addEventListener("DOMContentLoaded", function () {
     allowClear: true,
   });
 });
+
+//-----------------------------------------------------------------------
+//                       Render Publication Table
+//-----------------------------------------------------------------------
+function updatePublicationTable(data) {
+  const tableBody = document.querySelector("#publicationsTable tbody");
+  let html = "";
+
+  if (data.length > 0) {
+    data.forEach((pub) => {
+      html += `
+        <tr>
+          <td>${pub.title}</td>
+          <td>${pub.authors && pub.authors.length > 0 ? pub.authors.map(a => `<span class="author-chip">${a.name}</span>`).join(" ") : "-"}</td>
+          <td>${pub.journal}</td>
+          <td>${pub.year}</td>
+          <td>${pub.doi || "—"}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="table-btn btn-edit" onclick='openPublicationModal(${JSON.stringify(pub).replace(/"/g, "&apos;")})'>
+                <img src="./img_dashbord/table/edit.svg" class="edit-icon"/>
+              </button>
+              <button class="table-btn btn-delete" onclick="deleteItem('${pub._id}','publications',updatePublicationTable)">
+                <img src="./img_dashbord/table/delete.svg" class="delete-icon"/>
+              </button>
+            </div>
+          </td>
+        </tr>`;
+    });
+  } else {
+    html = '<tr><td colspan="6" class="text-center">No publications found.</td></tr>';
+  }
+
+  tableBody.innerHTML = html;
+}
