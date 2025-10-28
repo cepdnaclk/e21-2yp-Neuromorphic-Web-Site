@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Introduction to Pera Swarm",
+    "date": "2023-02-25",
+    "brief": "A session about ongoing research and innovation related to Neuromorphic computing",
+    "image": "img/hero.jpg",
+    "link": "News/news.htm",
+    "author": "Dr. Isuru Perera",
+    "fullContent": "<p>Researchers at the Neuromorphic Research Center have launched an exciting new initiative called the Pera Swarm project, focusing on distributed robotics and swarm intelligence algorithms.</p><p>The Pera Swarm project represents a significant advancement in the field of autonomous robotics, where multiple robots work together as a collective intelligence to solve complex problems. Drawing inspiration from natural swarms like bee colonies and ant communities, this research explores how simple local interactions between individual agents can lead to sophisticated emergent behaviors.</p><p>Dr. Isuru Perera, the project's principal investigator, emphasized the potential applications: 'Our goal is to develop scalable coordination algorithms that can manage hundreds of autonomous agents simultaneously. This technology has immediate applications in search and rescue operations, environmental monitoring, and industrial automation.'</p><p>The project has already demonstrated promising results with a test swarm of 25 robots successfully coordinating to map an unknown environment and locate specific targets with 95% accuracy. The next phase will scale up to 100+ robots and test real-world scenarios.</p>",
+    "views": 1245
+  },
+  {
+    "title": "NeuroChip X1 Development Progress",
+    "date": "2025-08-15",
+    "brief": "Major milestone achieved in neuromorphic chip development with successful prototype testing",
+    "image": "img/hero.jpg",
+    "link": "News/news2.htm",
+    "author": "Dr. Sarah Johnson",
+    "fullContent": "<p>The NeuroChip X1 project has reached a significant milestone with the successful fabrication and testing of prototype chips containing 1 million programmable neurons.</p><p>Our team has achieved a 68% reduction in power consumption compared to conventional processors while maintaining superior pattern recognition capabilities. The chip demonstrates real-time learning using spike-timing-dependent plasticity (STDP) algorithms.</p><p>This breakthrough represents a major step toward practical neuromorphic computing applications in edge devices, autonomous systems, and brain-computer interfaces.</p>",
+    "views": 892
+  },
+  {
+    "title": "Neural Signal Processing Breakthrough",
+    "date": "2025-09-30",
+    "brief": "Revolutionary advances in brain-computer interface technology achieve 94% accuracy in motor imagery classification",
+    "image": "img/hero.jpg",
+    "link": "News/news3.htm",
+    "author": "Dr. E. Dewagedara",
+    "fullContent": "<p>Our Neural Signal Processing project has achieved remarkable results in brain-computer interface (BCI) technology, reaching 94% accuracy in motor imagery classification tasks.</p><p>The breakthrough combines advanced signal processing techniques with deep learning architectures specifically designed for neural signals. The system can process EEG and fNIRS signals in real-time with less than 50ms latency.</p><p>This advancement opens new possibilities for assistive technologies for paralyzed patients and represents a significant step toward practical BCI applications.</p>",
+    "views": 1567
+  }
+]
