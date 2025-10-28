@@ -88,4 +88,41 @@ function openNewsModal(news = null) {
   document.getElementById("newsId").value = "";
   const preview = document.getElementById("imagePreview-news");
 
+  if (news) {
+    //Edit mode
+    title.textContent = "Edit News";
+    submitBtn.textContent = "Save Changes";
+
+    document.getElementById("newsId").value = news._id;
+    document.getElementById("newsTitle").value = news.title;
+    document.getElementById("newsAuthor").value = news.author;
+    document.getElementById("newsDate").value = news.date
+      ? new Date(news.date).toISOString().split("T")[0]
+      : "";
+    document.getElementById("newsBrief").value = news.brief;
+    document.getElementById("newsFullContent").value = news.fullContent;
+    document.getElementById("newsLink").value = news.link;
+
+    preview.src = news.image ? news.image : "./uploads/news.jpg";
+    preview.style.display = "block";
+    placeholder.style.display = "none";
+    uploadArea.classList.add("has-image");
+    removeBtn.style.display = "block";
+
+  } else {
+    //Add mode
+    title.textContent = "Add News";
+    submitBtn.textContent = "Add News";
+    preview.src = "./uploads/news.jpg";
+    preview.style.display = "none";
+
+    preview.src = "";
+    preview.style.display = "none";
+    placeholder.style.display = "flex";
+    uploadArea.classList.remove("has-image");
+    removeBtn.style.display = "none";
+  }
+
+  modal.classList.add("active");
+
 }
