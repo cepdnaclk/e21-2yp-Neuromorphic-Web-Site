@@ -19,4 +19,35 @@
     "description": "An exploration of adaptive control models using sensor fusion and neural networks in autonomous robotic systems.",
     "link": "https://www.ijar.org/article/00234"
   },
+  {
+    "_id": "671b9d300001000000000003",
+    "title": "Neural Signal Encoding for Prosthetic Feedback Systems",
+    "authors": ["671b8b120001000000000007", "671b8b120001000000000003"],
+    "year": 2022,
+    "journal": "Frontiers in Neuroscience",
+    "doi": "10.3389/fnins.2022.00987",
+    "description": "A detailed study on translating neural signals into tactile feedback using deep learning for prosthetic limb control.",
+    "link": "https://www.frontiersin.org/articles/10.3389/fnins.2022.00987"
+  },
+  {
+    "_id": "671b9d300001000000000004",
+    "title": "Low-Power Neuromorphic Chips for Edge AI Applications",
+    "authors": ["671b8b120001000000000006", "671b8b120001000000000001"],
+    "year": 2023,
+    "journal": "Nature Electronics",
+    "doi": "10.1038/s41928-023-00982-5",
+    "description": "Design and evaluation of neuromorphic processors optimized for energy-efficient computation in embedded edge systems.",
+    "link": "https://www.nature.com/articles/s41928-023-00982-5"
+  },
+  {
+    "_id": "671b9d300001000000000005",
+    "title": "Ethical Design Principles in Neural AI Systems",
+    "authors": ["671b8b120001000000000009", "671b8b120001000000000008"],
+    "year": 2025,
+    "journal": "Journal of AI Ethics and Governance",
+    "doi": "10.1016/j.aieg.2025.00042",
+    "description": "An analysis of ethical frameworks guiding responsible AI development in brain–computer interface technologies.",
+    "link": "https://www.aiegjournal.org/article/00042"
+  }
+
 ]
