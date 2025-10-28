@@ -81,3 +81,50 @@ async function openPublicationModal(publication = null) {
 
   modal.classList.add("active");
 }
+
+//-----------------------------------------------------------------------
+//                       Handle Publication Form Submit
+//-----------------------------------------------------------------------
+document.getElementById("publicationForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const publicationId = document.getElementById("publicationId").value;
+    const title = document.getElementById("publicationTitle").value;
+    const authors = $("#publicationAuthors").val();
+    const journal = document.getElementById("publicationJournal").value;
+    const year = document.getElementById("publicationYear").value;
+    const description = document.getElementById("publicationDescription").value;
+    const link = document.getElementById("publicationLink").value;
+    const doi = document.getElementById("publicationDoi").value;
+
+    const publicationData = {
+      title,
+      authors,
+      journal,
+      year,
+      description,
+      link,
+      doi,
+    };
+
+    if (publicationId) {
+      // Update existing publication
+      await editItem(
+        "publications",
+        publicationId,
+        publicationData,
+        "publications",
+        updatePublicationTable,
+        "publicationModal"
+      );
+    } else {
+      // Create new publication
+      await createItem(
+        "publications",
+        publicationData,
+        updatePublicationTable,
+        "publicationModal",
+        "publications"
+      );
+    }
+  });
