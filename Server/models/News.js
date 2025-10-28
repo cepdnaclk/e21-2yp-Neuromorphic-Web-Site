@@ -44,3 +44,11 @@ const NewsSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+// Create news slug from the title
+NewsSchema.pre('save', function(next) {
+    this.slug = slugify(this.title, { lower: true });
+    next();
+});
+
+module.exports = mongoose.model('News', NewsSchema);
