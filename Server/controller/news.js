@@ -86,3 +86,39 @@ exports.createNews = asyncHandler(async (req, res, next) => {
     data: news,
   });
 });
+
+// @desc   Update News
+// @route  PUT /api/v1/news/:id
+// @access Private (Admin only)
+exports.updateNews = asyncHandler(async (req, res, next) => {
+  let news = await News.findById(req.params.id);
+
+  if (!news) {
+    return next(new ErrorResponse(`News not found with id ${req.params.id}`, 404));
+  }
+
+  if (req.file) {
+    // Remove old image if it exists and is stored locally
+    if (news.image && news.image.includes("/uploads/news/")) {
+      const oldImageFilename = path.basename(news.image); 
+      const oldImagePath = path.join(__dirname, "..", "uploads", "news", oldImageFilename);
+
+      if (fs.existsSync(oldImagePath)) {
+        fs.unlinkSync(oldImagePath);
+      }
+    }
+
+    // Set new image URL
+    req.body.image = `${req.protocol}://${req.get("host")}/uploads/news/${req.file.filename}`;
+  }
+
+  news = await News.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: news,
+  });
+});
