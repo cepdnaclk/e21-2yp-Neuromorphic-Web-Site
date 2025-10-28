@@ -41,3 +41,14 @@ function updatePublicationTable(data) {
 
   tableBody.innerHTML = html;
 }
+
+//-----------------------------------------------------------------------
+//                       Open Add/Edit Publication Modal
+//-----------------------------------------------------------------------
+async function openPublicationModal(publication = null) {
+  await loadContributors("publicationAuthors","Select Authors");
+  const modal = document.getElementById("publicationModal");
+  const title = document.getElementById("publicationModalTitle");
+  const submitBtn = document.getElementById("publicationSubmitBtn");
+  const form = document.getElementById("publicationForm");
+  const authorSelect = document.getElementById("publicationAuthors");
