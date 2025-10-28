@@ -85,3 +85,14 @@
 .news-content p {
   margin-bottom: 3.2rem;
 }
+
+/* -----------------------------
+   FOOTER
+------------------------------ */
+.news-footer {
+  background-color: #3a3838ff;
+  color: #ddd;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.6rem;
+}
