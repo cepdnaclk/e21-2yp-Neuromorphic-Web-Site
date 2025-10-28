@@ -16,3 +16,21 @@ exports.getPublications = asyncHandler(async (req, res, next) => {
     data: publications,
   });
 });
+
+// @desc   Get single publication
+// @route  GET /api/v1/publications/:id
+// @access Public
+exports.getPublication = asyncHandler(async (req, res, next) => {
+  const Publication = await Publications.findById(req.params.id).populate({
+    path: "authors",
+    select: "name",
+  });
+
+  if (!Publication) {
+    return next(
+      new ErrorResponse(
+        `Publication not found with id of ${req.params.id}`,
+        404
+      )
+    );
+  }
