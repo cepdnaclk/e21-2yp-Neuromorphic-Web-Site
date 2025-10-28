@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuromphis Research Center - Admin Panel</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="./general.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="./login.css" rel="stylesheet" />
+    <!-- <script defer src="admin.js"></script> -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Select2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Login page -->
+    <section class="loginPage" id="loginPage">
+      <div class="login-container">
+        <div class="login-box">
+          <div class="login-form-section">
+            <h2>Login</h2>
+            <form id="loginForm">
+              <div class="login-input-box">
+                <input type="email" id="email" placeholder="Email" required />
+                <ion-icon name="person" class="login-icon"></ion-icon>
+              </div>
+              <div class="login-input-box">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+                <ion-icon name="lock" class="login-icon"></ion-icon>
+              </div>
+
+              <button type="submit" class="login-btn">Login</button>
+              <p class="signup-text">
+                Don't have an account? <a href="#">Sign Up</a>
+              </p>
+            </form>
+            <div id="loginError" class="alert alert-danger"></div>
+          </div>
+
+          <div class="welcome-section">
+            <div class="welcome-content">
+              <h1>welcome<br />Back!</h1>
+              <p>welcome to admin pannel of Neuromphics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <div id="adminPanel" class="container" style="display: none">
+      <!--  Sidebar  -->
+      <section class="sidebar">
+        <div class="sidebar-header">
+          <h2>
+            <i class="fas fa-brain"></i>
+            <span>Neuromphis</span>
+          </h2>
+        </div>
+        <ul class="sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" data-section="dashboard">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-section="contributors">
+              <i class="fas fa-users"></i>
+              <span>Contributors</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-section="news">
+              <i class="fas fa-newspaper"></i>
+              <span>News</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-section="publication">
+              <i class="fas fa-calendar"></i>
+              <span>Publication</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-section="blogs">
+              <i class="fas fa-user-cog"></i>
+              <span>Blogs</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-section="projects">
+              <i class="fas fa-project-diagram"></i>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-section="users">
+              <i class="fas fa-user-cog"></i>
+              <span>Users</span>
+            </a>
+          </li>
+          <div class="nav-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+          <h1 id="pageTitle">Dashboard</h1>
+          <div class="user-info">
+            <span>Welcome, <span id="adminName">Admin</span></span>
+            <div class="user-avatar">A</div>
+          </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="content-section active">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-content">
+                <h4>Contributors</h4>
+                <h2 id="totalContributors">0</h2>
+              </div>
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+            <div class="stat-card success">
+              <div class="stat-content">
+                <h4>News</h4>
+                <h2 id="totalNews">0</h2>
+              </div>
+              <div class="stat-icon">
+                <i class="fas fa-newspaper"></i>
+              </div>
+            </div>
+            <div class="stat-card warning">
+              <div class="stat-content">
+                <h4>Blogs</h4>
+                <h2 id="totalEvents">0</h2>
+              </div>
+              <div class="stat-icon">
+                <i class="fas fa-calendar"></i>
+              </div>
+            </div>
+            <div class="stat-card info">
+              <div class="stat-content">
+                <h4>Projects</h4>
+                <h2 id="totalProjects">0</h2>
+              </div>
+              <div class="stat-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="content-grid"
+            style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px"
+          >
+            <div class="card">
+              <div class="card-header">
+                <h3>Recent Activities</h3>
+              </div>
+              <div class="card-body">
+                <div id="recentActivities">
+                  <p style="color: var(--gray)">Loading recent activities...</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Upcoming News</h3>
+              </div>
+              <div class="card-body">
+                <div id="upcomingEvents">
+                  <p style="color: var(--gray)">Loading upcoming news...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contributors Section -->
+        <div id="contributors" class="content-section">
+          <div
+            class="section-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <h2>Contributors Management</h2>
+            <button class="btn btn-primary" onclick="openContributorModal()">
+              <i class="fas fa-plus"></i>Add Contributor
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-container">
+                <table id="contributorsTable">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Position</th>
+                      <th>Phone</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="6" style="text-align: center">
+                        Loading contributors...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- News Section -->
+        <div id="news" class="content-section">
+          <div
+            class="section-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <h2>News Management</h2>
+            <button class="btn btn-primary" onclick="openNewsModal()">
+              <i class="fas fa-plus"></i>Add News
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-container">
+                <table id="newsTable">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Date</th>
+                      <th>Brief</th>
+                      <th>Link</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="7" style="text-align: center">
+                        Loading news...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publications Section -->
+        <div id="publication" class="content-section">
+          <div
+            class="section-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <h2>Publications Management</h2>
+            <button class="btn btn-primary" onclick="openPublicationModal()">
+              <i class="fas fa-plus"></i>Add Publications
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-container">
+                <table id="publicationsTable">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Authors</th>
+                      <th>Journal</th>
+                      <th>Year</th>
+                      <th>DOI</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="6" style="text-align: center">
+                        Loading publications...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blogs Section -->
+        <div id="blogs" class="content-section">
+          <div
+            class="section-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <h2>Blogs Management</h2>
+            <button class="btn btn-primary" onclick="openBlogModal()">
+              <i class="fas fa-plus"></i>Add Blog
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-container">
+                <table id="blogsTable">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Date</th>
+                      <th>Read Time</th>
+                      <th>Views</th>
+                      <th>Link</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="7" style="text-align: center">
+                        Loading events...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects" class="content-section">
+          <div
+            class="section-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <h2>Projects Management</h2>
+            <button class="btn btn-primary" onclick="openProjectModal()">
+              <i class="fas fa-plus"></i>Add Project
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-container">
+                <table id="projectsTable">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Tags</th>
+                      <th>Status</th>
+                      <th>Duration</th>
+                      <th>Contributors</th>
+                      <th>Technologies</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="7" style="text-align: center">
+                        Loading projects...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users Section -->
+        <div id="users" class="content-section">
+          <div
+            class="section-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+            "
+          >
+            <h2>Users Management</h2>
+            <button class="btn btn-primary" onclick="openUserModal()">
+              <i class="fas fa-plus"></i>Add User
+            </button>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-container">
+                <table id="usersTable">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Created At</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="5" style="text-align: center">
+                        Loading users...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-overlay hidden-section">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+      </div>
+    </div>
+
+    <!-- Add/Edit Contributor Modal -->
+    <div class="modal" id="contributorModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="contributorModalTitle">Add Contributor</h3>
+          <button class="modal-close" onclick="closeModal('contributorModal')">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="contributorForm">
+            <input type="hidden" id="contributorId" />
+
+            <!-- Profile Image Upload Section -->
+            <div class="form-group image-upload-section">
+              <label class="image-upload-label">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="contributorImage"
+                  accept="image/*"
+                  style="display: none"
+                />
+                <div class="image-upload-area">
+                  <img
+                    id="imagePreview"
+                    src=""
+                    alt="Preview"
+                    style="display: none"
+                  />
+                  <div id="uploadPlaceholder" class="upload-placeholder">
+                    <img
+                      src="./img_dashbord/from-icon/upload.svg"
+                      class="upload-icon"
+                    />
+                    <span>Upload Photo</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contributorName" class="form-label">
+                  <img
+                    src="./img_dashbord/from-icon/people1.svg"
+                    class="form-icons"
+                  />
+                  Full Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contributorName"
+                  placeholder="Enter full nmae"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contributorEmail" class="form-label">
+                  <img
+                    src="./img_dashbord/from-icon/email.svg"
+                    class="form-icon"
+                  />
+                  Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="contributorEmail"
+                  placeholder="eXXX@eng.pdn.ac.lk"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contributorPosition" class="form-label">
+                  <img
+                    src="./img_dashbord/from-icon/position.svg"
+                    class="form-icon"
+                  />
+                  Position</label
+                >
+                <select class="form-control" id="contributorPosition" required>
+                  <option value="">Select Position</option>
+                  <option value="Lecture">Lecture</option>
+                  <option value="Student">Student</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contributorPhone" class="form-label">
+                  <img
+                    src="./img_dashbord/from-icon/phone.svg"
+                    class="form-icon"
+                  />
+                  Phone
+                </label>
+
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="contributorPhone"
+                  placeholder="+94 123 456 789"
+                />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="closeModal('contributorModal')"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                id="contributorSubmitBtn"
+                class="btn btn-primary"
+              >
+                Add Contributor
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div class="modal" id="userModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="userModalTitle">Add User</h3>
+          <button class="modal-close" onclick="closeModal('userModal')">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="userForm">
+            <input type="hidden" id="userId" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="userName" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  id="userName"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="userEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="userEmail"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="userRole" class="form-label">Role</label>
+                <select id="userRole" class="form-control" required>
+                  <option value="">Select Role</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Publisher">Publisher</option>
+                  <option value="Student">Studnet</option>
+                  <option value="Lecture">Lecture</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" id="passwordGroup">
+              <label for="userPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                id="userPassword"
+                class="form-control"
+                placeholder="Enter new password"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="closeModal('userModal')"
+          >
+            Cancel
+          </button>
+          <button type="submit" form="userForm" class="btn btn-primary">
+            Save User
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Publication Modal -->
+    <div class="modal" id="publicationModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="publicationModalTitle">Add Publication</h3>
+          <button class="modal-close" onclick="closeModal('publicationModal')">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="publicationForm">
+            <input type="hidden" id="publicationId" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="publicationTitle" class="form-label">Title</label>
+                <input
+                  type="text"
+                  id="publicationTitle"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="publicationAuthors" class="form-label"
+                  >Authors</label
+                >
+                <select
+                  id="publicationAuthors"
+                  class="form-control"
+                  multiple="multiple"
+                  required
+                ></select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="publicationJournal" class="form-label"
+                  >Journal / Venue</label
+                >
+                <input
+                  type="text"
+                  id="publicationJournal"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="publicationYear" class="form-label">Year</label>
+                <input
+                  type="number"
+                  id="publicationYear"
+                  class="form-control"
+                  placeholder="e.g. 2024"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="publicationDescription" class="form-label"
+                >Description</label
+              >
+              <textarea
+                id="publicationDescription"
+                class="form-control"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="publicationLink" class="form-label"
+                >Publication Link (optional)</label
+              >
+              <input
+                type="url"
+                id="publicationLink"
+                class="form-control"
+                placeholder="https://example.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="publicationDoi" class="form-label"
+                >DOI (optional)</label
+              >
+              <input
+                type="text"
+                id="publicationDoi"
+                class="form-control"
+                placeholder="e.g. 10.1109/5.771073"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn"
+                onclick="closeModal('publicationModal')"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="publicationSubmitBtn"
+              >
+                Create Publication
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Blog Modal -->
+    <div class="modal" id="blogModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="blogModalTitle">Add Blog</h3>
+          <button class="modal-close" onclick="closeModal('blogModal')">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="blogForm">
+            <input type="hidden" id="blogId" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="blogTitle" class="form-label">Title</label>
+                <input
+                  type="text"
+                  id="blogTitle"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="blogAuthor" class="form-label">Author</label>
+                <input
+                  type="text"
+                  id="blogAuthor"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="blogDate" class="form-label">Date</label>
+                <input type="date" id="blogDate" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="blogReadTime" class="form-label">Read Time</label>
+                <input
+                  type="text"
+                  id="blogReadTime"
+                  class="form-control"
+                  placeholder="e.g. 5 min"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="blogDescription" class="form-label"
+                >Description</label
+              >
+              <textarea
+                id="blogDescription"
+                class="form-control"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="blogLink" class="form-label"
+                >Blog Link (optional)</label
+              >
+              <input
+                type="url"
+                id="blogLink"
+                class="form-control"
+                placeholder="https://example.com/blog"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn"
+                onclick="closeModal('blogModal')"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary" id="blogSubmitBtn">
+                Create Blog
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Project Modal -->
+    <div class="modal" id="projectModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="projectModalTitle">Add Project</h3>
+          <button class="modal-close" onclick="closeModal('projectModal')">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="projectForm" enctype="multipart/form-data">
+            <input type="hidden" id="projectId" />
+
+            <div class="form-group">
+              <label for="projectTitle" class="form-label">Title</label>
+              <input
+                type="text"
+                id="projectTitle"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="projectTags" class="form-label"
+                >Tags (comma-separated)</label
+              >
+              <input
+                type="text"
+                id="projectTags"
+                class="form-control"
+                placeholder="e.g., Neuromorphic, AI, VLSI"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="projectDetails" class="form-label"
+                >Short Details</label
+              >
+              <textarea
+                id="projectDetails"
+                class="form-control"
+                rows="3"
+                maxlength="1000"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="projectOverview" class="form-label">Overview</label>
+              <textarea
+                id="projectOverview"
+                class="form-control"
+                rows="4"
+                maxlength="5000"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="projectObjectives" class="form-label"
+                >Objectives (one per line)</label
+              >
+              <textarea
+                id="projectObjectives"
+                class="form-control"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="projectOutcomes" class="form-label"
+                >Outcomes (one per line)</label
+              >
+              <textarea
+                id="projectOutcomes"
+                class="form-control"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="projectTechnicalApproach" class="form-label"
+                >Technical Approach</label
+              >
+              <textarea
+                id="projectTechnicalApproach"
+                class="form-control"
+                rows="4"
+                maxlength="5000"
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="projectStatus" class="form-label">Status</label>
+                <select id="projectStatus" class="form-control">
+                  <option value="Planning">Planning</option>
+                  <option value="Active">Active</option>
+                  <option value="Completed">Completed</option>
+                  <option value="On-Hold">On-Hold</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="projectDuration" class="form-label">Duration</label>
+                <input
+                  type="text"
+                  id="projectDuration"
+                  class="form-control"
+                  placeholder="e.g., 6 months"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="projectFunding" class="form-label">Funding</label>
+              <input type="text" id="projectFunding" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="projectTechnologies" class="form-label"
+                >Technologies (comma-separated)</label
+              >
+              <input
+                type="text"
+                id="projectTechnologies"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="projectContributors" class="form-label"
+                >Contributors</label
+              >
+              <select
+                id="projectContributors"
+                class="form-control"
+                multiple
+              ></select>
+            </div>
+
+            <div class="form-group">
+              <label for="projectRepositories" class="form-label"
+                >Repositories</label
+              >
+              <textarea
+                id="projectRepositories"
+                class="form-control"
+                rows="3"
+                placeholder="title | description | link | type (GitHub/Web Page/Documentation) per line"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="projectLink" class="form-label">Project Link</label>
+              <input type="text" id="projectLink" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="projectImage" class="form-label"
+                >Upload Project Image (optional)</label
+              >
+              <div class="image-upload-wrapper-project">
+                <input
+                  type="file"
+                  id="projectImage"
+                  class="form-control"
+                  accept="image/*"
+                  style="display: none"
+                />
+                <div
+                  class="image-upload-area-project"
+                  id="uploadAreaProject"
+                  onclick="document.getElementById('projectImage').click()"
+                >
+                  <div
+                    class="uploadProject-placeholder"
+                    id="uploadPlaceholderProject"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <span>Click to Upload Project Image</span>
+                    <small>PNG, JPG, GIF or WEBP (max. 5MB)</small>
+                  </div>
+                  <img
+                    id="imagePreview-project"
+                    src=""
+                    alt="Preview"
+                    style="display: none"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="remove-image"
+                  id="removeProjectImageBtn"
+                  onclick="removeProjectImage(event)"
+                  style="display: none"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="closeModal('projectModal')"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            form="projectForm"
+            id="projectSubmitBtn"
+          >
+            Save Project
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--Add/Edit News Modal-->
+    <div class="modal" id="newsModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="newsModalTitle">Add News</h3>
+          <button class="modal-close" onclick="closeModal('newsModal')">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form id="newsForm">
+            <input type="hidden" id="newsId" />
+
+            <div class="form-group">
+              <label for="newsTitle" class="form-label">News Title</label>
+              <input
+                type="text"
+                id="newsTitle"
+                class="form-control"
+                placeholder="Enter an engaging news title..."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="newsAuthor" class="form-label">Author</label>
+              <input
+                type="text"
+                id="newsAuthor"
+                class="form-control"
+                placeholder="Auhtor name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="newsDate" class="form-label">PublicationDate</label>
+              <input type="date" id="newsDate" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="newsBrief" class="form-label">Brief</label>
+              <textarea
+                id="newsBrief"
+                class="form-control"
+                rows="3"
+                placeholder="Write a short summary (150-200 characters)..."
+                maxlength="200"
+                required
+              ></textarea>
+              <div class="char-counter">
+                <span id="briefCounter">0</span>/200 characters
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="newsFullContent" class="form-label"
+                >Full Content</label
+              >
+              <textarea
+                id="newsFullContent"
+                class="form-control"
+                rows="6"
+                placeholder="write the complete news article..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="newsImage" class="form-label"
+                >Upload Image (optional)</label
+              >
+              <div class="image-upload-wrapper-news">
+                <input
+                  type="file"
+                  id="newsImage"
+                  class="form-control"
+                  accept="image/*"
+                  style="display: none"
+                />
+                <div
+                  class="image-upload-area-news"
+                  id="uploadAreaNews"
+                  onclick="document.getElementById('newsImage').click()"
+                >
+                  <div
+                    class="uploadNews-placeholder"
+                    id="uploadPlaceholderNews"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <span>Click to Upload Image</span>
+                    <small>PNG, JPG, GIF or WEBP (max. 5MB)</small>
+                  </div>
+                  <img
+                    id="imagePreview-news"
+                    src=""
+                    alt="Preview"
+                    style="display: none"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="remove-image"
+                  id="removeImageBtn"
+                  onclick="removeImage(event)"
+                  style="display: none"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="newsLink" class="form-label"
+                >External Link (optional)</label
+              >
+              <input
+                type="url"
+                id="newsLink"
+                class="form-control"
+                placeholder="https://example.com"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn"
+                onclick="closeModal('newsModal')"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary" id="newsSubmitBtn">
+                Create News
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="globalPopup" class="popup hidden-section">
+      <span id="popupIcon"></span>
+      <p id="popupMessage"></p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./JS/DOM.js"></script>
+    <script src="./JS/general_function.js"></script>
+    <script src="./JS/projects.js"></script>
+    <script src="./JS/publication.js"></script>
+    <script src="./JS/news.js"></script>
+    <script src="./JS/blog.js"></script>
+    <script src="./JS/contributors.js"></script>
+    <script src="./JS/main.js"></script>
+    <script src="./JS/login.js"></script>
+    <script src="./JS/Navigation.js"></script>
+    <script src="./JS/dashboard.js"></script>
+    <script src="./JS/users.js"></script>
+  </body>
+</html>
