@@ -37,3 +37,25 @@ exports.getSingleNews = asyncHandler(async (req, res, next) => {
     data: news,
   });
 });
+
+// @desc  Get News by slug
+// @route GET /api/v1/news/slug/:slug
+// @access Public
+exports.getNewsBySlug = asyncHandler(async (req, res, next) => {
+  const news = await News.findOne({ slug: req.params.slug });
+
+  if (!news) {
+    return next(
+      new ErrorResponse(`News not found with slug of ${req.params.slug}`, 404)
+    );
+  }
+
+  // Increment views
+  news.views += 1;
+  await news.save({ validateBeforeSave: false });
+
+  res.status(200).json({
+    success: true,
+    data: news,
+  });
+});
