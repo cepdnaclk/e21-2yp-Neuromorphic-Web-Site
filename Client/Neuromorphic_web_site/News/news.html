@@ -45,3 +45,50 @@
       </div>
     </footer>
 
+    <script>
+      const API_BASE_URL = "http://localhost:8000/api/v1";
+
+      async function fetchJSON(path) {
+        const response = await fetch(`${API_BASE_URL}/${path}`);
+        if (!response.ok) throw new Error(`Failed ${path}: ${response.status}`);
+        return response.json();
+      }
+
+      function getNewsIdFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id');
+      }
+
+      async function loadNewsDetails() {
+        const id = getNewsIdFromURL();
+        if (!id) return;
+
+        try {
+          const res = await fetchJSON(`news/${id}`); // Assuming backend supports GET /news/:id
+          const news = res.data;
+
+          document.querySelector('.news-title').textContent = news.title;
+          document.querySelector('.news-meta li:nth-child(1)').textContent = `Author: ${news.author}`;
+          document.querySelector('.news-meta li:nth-child(3)').textContent = `Publish: ${new Date(news.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}`;
+          document.querySelector('.news-image').src = news.image;
+          document.querySelector('.news-image').alt = news.title;
+          const paragraphs = news.fullContent.split('\n');
+          document.querySelector('.news-content').innerHTML = paragraphs.map(p=>`<p>${p}</p>`).join(''); 
+
+        } catch(e) {
+          console.log(e);
+          document.querySelector('.news-main').innerHTML = '<p class="text-center">Failed to load news details.</p>';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', loadNewsDetails);
+    </script>
+
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>
