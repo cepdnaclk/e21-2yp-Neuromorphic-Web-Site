@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "671b8b120001000000000001",
+    "name": "Dr. Jane Smith",
+    "email": "jane.smith@neuromphis.com",
+    "position": "Lead Research Scientist",
+    "phone": "+1 (555) 234-5678",
+    "image": "img/contributors/jane.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000002",
+    "name": "Dr. Alan Turing",
+    "email": "alan.turing@neuromphis.com",
+    "position": "AI Architect",
+    "phone": "+1 (555) 345-6789",
+    "image": "img/contributors/alan.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000003",
+    "name": "Dr. Maria Lopez",
+    "email": "maria.lopez@neuromphis.com",
+    "position": "Neural Hardware Engineer",
+    "phone": "+1 (555) 567-2345",
+    "image": "img/contributors/maria.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000004",
+    "name": "Dr. Rajesh Kumar",
+    "email": "rajesh.kumar@neuromphis.com",
+    "position": "Computational Neuroscientist",
+    "phone": "+94 77 321 8765",
+    "image": "img/contributors/rajesh.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000005",
+    "name": "Dr. Lisa Nguyen",
+    "email": "lisa.nguyen@neuromphis.com",
+    "position": "Machine Learning Specialist",
+    "phone": "+1 (555) 876-2341",
+    "image": "img/contributors/lisa.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000006",
+    "name": "Dr. Tom Becker",
+    "email": "tom.becker@neuromphis.com",
+    "position": "Embedded Systems Engineer",
+    "phone": "+49 151 234 5678",
+    "image": "img/contributors/tom.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000007",
+    "name": "Dr. Emily Zhang",
+    "email": "emily.zhang@neuromphis.com",
+    "position": "Cognitive AI Researcher",
+    "phone": "+1 (555) 111-2222",
+    "image": "img/contributors/emily.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000008",
+    "name": "Prof. David Lee",
+    "email": "david.lee@neuromphis.com",
+    "position": "Director of Research",
+    "phone": "+1 (555) 999-8888",
+    "image": "img/contributors/david.jpg"
+  },
+  {
+    "_id": "671b8b120001000000000009",
+    "name": "Dr. Nisha Perera",
+    "email": "nisha.perera@neuromphis.com",
+    "position": "AI Ethics and Systems Lead",
+    "phone": "+94 71 456 7890",
+    "image": "img/contributors/nisha.jpg"
+  },
+  {
+    "_id": "671b8b12000100000000000a",
+    "name": "Dr. Omar El-Sayed",
+    "email": "omar.elsayed@neuromphis.com",
+    "position": "Signal Processing Engineer",
+    "phone": "+20 111 234 5678",
+    "image": "img/contributors/omar.jpg"
+  }
+]
