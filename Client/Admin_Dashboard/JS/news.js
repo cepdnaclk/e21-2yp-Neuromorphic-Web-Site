@@ -126,3 +126,45 @@ function openNewsModal(news = null) {
   modal.classList.add("active");
 
 }
+
+
+document.getElementById("newsForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const newsId = document.getElementById("newsId").value;
+
+    const newsData = new FormData();
+
+    newsData.append("title", document.getElementById("newsTitle").value);
+    newsData.append("brief", document.getElementById("newsBrief").value);
+    newsData.append("fullContent",document.getElementById("newsFullContent").value);
+    newsData.append("author", document.getElementById("newsAuthor").value);
+    newsData.append("date", document.getElementById("newsDate").value);
+    newsData.append("link", document.getElementById("newsLink").value);
+
+    const imageFile = document.getElementById("newsImage").files[0];
+    if (imageFile) {
+      newsData.append("image", imageFile);
+    }
+
+    if (newsId) {
+      // Edit existing news
+      await editItemWithImage(
+        "news",
+        "news",
+        newsId,
+        newsData,
+        updateNewsTable,
+        "newsModal"
+      );
+    } else {
+      // Create new news
+      await createItemWithImage(
+        "news",
+        newsData,
+        updateNewsTable,
+        "newsModal",
+        "news"
+      );
+    }
+  });
