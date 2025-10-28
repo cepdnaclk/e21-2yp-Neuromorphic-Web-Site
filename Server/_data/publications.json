@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "671b9d300001000000000001",
+    "title": "Swarm Intelligence Approaches in Distributed Robotics",
+    "authors": ["671b8b120001000000000001", "671b8b120001000000000004"],
+    "year": 2024,
+    "journal": "IEEE Transactions on Robotics",
+    "doi": "10.1109/TRO.2024.0156789",
+    "description": "This research focuses on swarm-based path optimization algorithms inspired by biological systems, applied to robotic networks.",
+    "link": "https://ieeexplore.ieee.org/document/0156789"
+  },
+]
