@@ -8,3 +8,45 @@
     <link href="css/query.css" rel="stylesheet" />
     <title>People</title>
   </head>
+  <body>
+    <header class="subSection-header">
+      <div class="container">
+        <a href="./index.html#blogs" class="back-link">← Back to Blog Section</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-blogs" id="blogs" style="background-color:#fff">
+        <div class="container">
+          <h2 class="subheading">
+            Blogs
+          </h2>
+        </div>
+
+        <div class="container blog-grid" id="blog-container">
+             <!-- Blogs will be loaded dynamically -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="subSection-footer">
+      <div class="container">
+        <p>&copy; 2025 Neuromorphic Research Center | All Rights Reserved</p>
+      </div>
+    </footer>
+
+
+    <script src="./js/sub-api.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        try {
+          window.NEURO_API.loadBlogs('#blog-container');
+        } catch (e) {
+          console.error('Failed to initialize API loaders', e);
+        }
+      });
+    </script>
+  </body>
+</html>
