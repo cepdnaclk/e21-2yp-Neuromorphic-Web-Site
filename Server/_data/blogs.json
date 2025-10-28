@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Advances in Neuromorphic Chip Design",
+    "author": "Dr. E. Dewagedara",
+    "date": "2025-10-14",
+    "readTime": "16min",
+    "description": "Our latest prototype achieves real-time signal learning with 10x reduced energy consumption.",
+    "image": "img/blog.png",
+    "link": "#",
+    "views": 2341
+  },
+  {
+    "title": "Low-power Spiking Networks",
+    "author": "Research Team",
+    "date": "2025-08-01",
+    "readTime": "8min",
+    "description": "Design techniques for ultra-low power spiking neural networks on edge devices.",
+    "image": "img/blog.png",
+    "link": "#",
+    "views": 1456
+  },
+  {
+    "title": "Future of Brain-Computer Interfaces",
+    "author": "Dr. Sarah Johnson",
+    "date": "2025-09-15",
+    "readTime": "12min",
+    "description": "Exploring the potential of next-generation brain-computer interfaces for medical and assistive applications.",
+    "image": "img/blog.png",
+    "link": "#",
+    "views": 35
+  },
+  {
+    "title": "Swarm Robotics: Lessons from Nature",
+    "author": "Dr. Isuru Perera",
+    "date": "2025-07-20",
+    "readTime": "10min",
+    "description": "How biological swarms inspire next-generation robotics systems for complex task coordination.",
+    "image": "img/blog.png",
+    "link": "#",
+    "views": 1234
+  }
+]
